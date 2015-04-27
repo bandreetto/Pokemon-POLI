@@ -5,6 +5,7 @@ public abstract class Pokemon {
 	private String nome;
 	private int hp;
 	private String[] ataques;
+	private 
 	
 	
 	public void ataque1(Pokemon alvo) {}
