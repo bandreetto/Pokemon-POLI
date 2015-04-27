@@ -1,20 +1,8 @@
 
 public abstract class Pokemon {
-	private int numero;
+	private int hp;
 	private String tipo;
 	private String nome;
-	private int hp;
-	private String[] ataques;
-	private 
-	
-	
-	public void ataque1(Pokemon alvo) {}
-	
-	public void ataque2(Pokemon alvo) {}
-	
-	public void ataque3(Pokemon alvo) {}
-		
-	public void ataque4(Pokemon alvo) {}
 	
 	public boolean morreu() {
 		if (hp <= 0) return true;
@@ -29,12 +17,12 @@ public abstract class Pokemon {
 		return nome;
 	}
 	
-	public int getNumero() {
-		return numero;
-	}
-	
 	public void dano(int n) {
 		hp -= n;
 	}
+	
+	abstract public int getFOR();
+	abstract public int getAGI();
+	abstract public int getDEF();
 		
 }
