@@ -1,7 +1,6 @@
 
 public abstract class Pokemon {
 	private int hp;
-	private String tipo;
 	private String nome;
 	
 	public boolean morreu() {
@@ -9,9 +8,6 @@ public abstract class Pokemon {
 		return false;
 	}
 	
-	public String getTipo() {
-		return tipo;
-	}
 	
 	public String getNome() {
 		return nome;
@@ -24,5 +20,6 @@ public abstract class Pokemon {
 	abstract public int getFOR();
 	abstract public int getAGI();
 	abstract public int getDEF();
+	abstract public String getTipo();
 		
 }
