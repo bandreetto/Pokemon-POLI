@@ -22,6 +22,10 @@ public class Charmander extends Pokemon{
 		return DEF;
 	}
 	
+	public String getTipo() {
+		return tipo;
+	}
+	
 	// a seguir os ataques de charmander já respeitando fraquezas e vantagens
 	// Fórmula para dano = FOR*ATQ BASE*FRAQUESA/RESISTÊNCIA - DEFESA ALVO
 	public void Brasas(Pokemon alvo) {
