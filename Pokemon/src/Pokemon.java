@@ -21,5 +21,10 @@ public abstract class Pokemon {
 	abstract public int getAGI();
 	abstract public int getDEF();
 	abstract public String getTipo();
+	
+	abstract public void ataque1(Pokemon alvo);
+	abstract public void ataque2(Pokemon alvo);
+	abstract public void ataque3(Pokemon alvo);
+	abstract public void ataque4(Pokemon alvo);
 		
 }
