@@ -27,7 +27,7 @@ public class Charmander extends Pokemon{
 	}
 	
 	// a seguir os ataques de charmander já respeitando fraquezas e vantagens
-	// Fórmula para dano = (FOR*0.1)*ATQ BASE*FRAQUESA/RESISTÊNCIA - DEFESA ALVO
+	// Fórmula Dano = (FOR*0.1)*ATQ BASE*FRAQUESA/RESISTÊNCIA - DEFESA ALVO
 	public void Brasas(Pokemon alvo) {
 		if (alvo.getTipo() == "Grama") {
 			alvo.dano((int)(FOR*0.1*15*1.5 - alvo.getDEF()));
