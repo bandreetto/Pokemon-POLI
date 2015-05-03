@@ -5,11 +5,13 @@ import org.junit.*;
 public class TesteCharmander {
 	private String [] ataques = new String[4]; 
 	Charmander c1, c2;
+	Squirtle s;
 	
 	@Before
 	public void criaCharmander() {
 		c1 = new Charmander();
 		c2 = new Charmander();
+		s = new Squirtle();
 		ataques[0] = "Brasas";
 		ataques[1] = "Arranhao";
 		ataques[2] = "Garra de Metal";
@@ -28,14 +30,6 @@ public class TesteCharmander {
 		assertEquals(9, c1.getAGI());
 		assertEquals(10, c1.getDEF());
 		assertEquals("Fogo", c1.getTipo());
-	}
-	
-	@Test
-	public void ataque1() {
-		c1.ataque1(c2);
-		assertEquals(88, c2.getHP());
-		c2.cura(50);
-		assertEquals(100, c2.getHP());
 	}
 	
 	
