@@ -1,39 +1,20 @@
 
 public class Squirtle extends Pokemon{
 	public static final int id = 2;
-	private final int FOR = 24, AGI = 4, DEF = 20;
-	private final String tipo = "Agua";
-	private String [] ataques = new String[4];
-	private int hp;
-
 	
 	// cria um squirtle com 115 de hp
 	public Squirtle() {
-		hp = 115;
+		hp = 120;
+		baseHP = 120;
+		FOR = 20;
+		AGI = 2;
+		DEF = 20;
+		tipo = "Agua";
+		ataques = new String[4];
 		ataques[0] = "Jato de Agua";
 		ataques[1] = "Giro Rapido";
 		ataques[2] = "Quebra-Cranio";
 		ataques[3] = "Raio de Gelo";
-	}
-	
-	public int getHP() {
-		return hp;
-	}
-
-	public int getFOR() {
-		return FOR;
-	}
-	
-	public int getAGI() {
-		return AGI;
-	}
-	
-	public int getDEF() {
-		return DEF;
-	}
-	
-	public String getTipo() {
-		return tipo;
 	}
 	
 	
