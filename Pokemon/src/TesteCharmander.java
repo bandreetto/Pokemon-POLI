@@ -1,17 +1,13 @@
-import static org.junit.Assert.*;
-
 import org.junit.*;
+import static org.junit.Assert.*;
 
 public class TesteCharmander {
 	private String [] ataques = new String[4]; 
-	Charmander c1, c2;
-	Squirtle s;
+	Charmander c;
 	
 	@Before
 	public void criaCharmander() {
-		c1 = new Charmander();
-		c2 = new Charmander();
-		s = new Squirtle();
+		c = new Charmander();
 		ataques[0] = "Brasas";
 		ataques[1] = "Arranhao";
 		ataques[2] = "Garra de Metal";
@@ -20,18 +16,16 @@ public class TesteCharmander {
 	
 	@Test
 	public void getMethods() {
-		assertEquals(ataques[0], c1.ataques()[0]);
-		assertEquals(ataques[1], c1.ataques()[1]);
-		assertEquals(ataques[2], c1.ataques()[2]);
-		assertEquals(ataques[3], c1.ataques()[3]);
-		assertEquals(100, c1.getHP());
-		assertEquals(100, c1.getBaseHP());
-		assertEquals(30, c1.getFOR());
-		assertEquals(9, c1.getAGI());
-		assertEquals(10, c1.getDEF());
-		assertEquals("Fogo", c1.getTipo());
+		assertEquals(ataques[0], c.ataques()[0]);
+		assertEquals(ataques[1], c.ataques()[1]);
+		assertEquals(ataques[2], c.ataques()[2]);
+		assertEquals(ataques[3], c.ataques()[3]);
+		assertEquals(100, c.getHP());
+		assertEquals(100, c.getBaseHP());
+		assertEquals(30, c.getFOR());
+		assertEquals(9, c.getAGI());
+		assertEquals(10, c.getDEF());
+		assertEquals("Fogo", c.getTipo());
 	}
 	
-	
-
 }
