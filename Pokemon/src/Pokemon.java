@@ -1,26 +1,51 @@
 
 public abstract class Pokemon {
-	private int hp;
-	private String nome;
+	protected int hp, baseHP, FOR, AGI, DEF;
+	protected String tipo;
+	protected String [] ataques;
+	
+	public int getHP() {
+		return hp;
+	}
+	
+	public int getBaseHP() {
+		return baseHP;
+	}
+	
+	public int getFOR() {
+		return FOR;
+	}
+
+	public int getAGI() {
+		return AGI;
+	}
+	
+	public int getDEF() {
+		return DEF;
+	}
+	
+	public String getTipo() {
+		return tipo;
+	}
+	
+	public String [] ataques() {
+		return ataques;
+	}
 	
 	public boolean morreu() {
 		if (hp <= 0) return true;
 		return false;
 	}
 	
-	
-	public String getNome() {
-		return nome;
-	}
-	
 	public void dano(int n) {
 		hp -= n;
 	}
 	
-	abstract public int getFOR();
-	abstract public int getAGI();
-	abstract public int getDEF();
-	abstract public String getTipo();
+	public void cura(int n) {
+		if ((hp + n) > baseHP) hp = baseHP;
+		else hp += n;
+	}
+	
 	
 	abstract public void ataque1(Pokemon alvo);
 	abstract public void ataque2(Pokemon alvo);

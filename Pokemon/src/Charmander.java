@@ -1,39 +1,21 @@
 
 public class Charmander extends Pokemon{
 	public static final int id = 1;
-	private final int FOR = 30, AGI = 9, DEF = 10;
-	private final String tipo = "Fogo";
-	private String [] ataques = new String[4];
-	private int hp;
 	
 	// cria um charmander com 100 de hp e cria o vetor de ataques
 	public Charmander() { 
 		hp = 100;
+		baseHP = 100;
+		FOR = 30;
+		AGI = 9;
+		DEF = 10;
+		tipo = "Fogo";
+		ataques = new String[4];
 		ataques[0] = "Brasas";
 		ataques[1] = "Arranhao";
 		ataques[2] = "Garra de Metal";
 		ataques[3] = "Furia";
 		
-	}
-	
-	public int getHP(){
-		return hp;
-	}
-	
-	public int getFOR() {
-		return FOR;
-	}
-	
-	public int getAGI() {
-		return AGI;
-	}
-	
-	public int getDEF() {
-		return DEF;
-	}
-	
-	public String getTipo() {
-		return tipo;
 	}
 	
 	// a seguir os ataques de charmander já respeitando fraquezas e vantagens
@@ -74,4 +56,5 @@ public class Charmander extends Pokemon{
 			alvo.dano((int)((1/hp)*(FOR*0.1*30 - alvo.getDEF())));
 		}
 	}
+	
 }
