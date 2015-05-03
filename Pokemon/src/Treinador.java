@@ -42,7 +42,7 @@ public class Treinador {
 		if(id == 11)
 			novo = new Treecko();
 		if(id == 12)
-			novo = new Pidgeotto();
+			novo = new Pidgey();
 		
 		return novo;		
 	}//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -78,7 +78,7 @@ public class Treinador {
 		
 	}
 	//troca o Pokemon ativo pelo escolhido
-	public void trocarPokemon(Pokemon [] time; Pokemon x){
+	public void trocarPokemon(Pokemon [] time, Pokemon x){
 		int prior = 2;
 		// o pokemon escolhido tem que estar no time!
 		ativo = x;

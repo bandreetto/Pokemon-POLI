@@ -16,6 +16,10 @@ public class Charmander extends Pokemon{
 		
 	}
 	
+	public int getHP(){
+		return hp;
+	}
+	
 	public int getFOR() {
 		return FOR;
 	}
@@ -46,9 +50,9 @@ public class Charmander extends Pokemon{
 	
 	public void ataque2(Pokemon alvo) {
 		if (alvo.getTipo() == "Pedra") {
-			alvo.dano((int)(FOR*0.1*10*0.5 - alvo.getDEF())); 
+			alvo.dano((int)(FOR*0.1*12*0.5 - alvo.getDEF())); 
 		} else {
-			alvo.dano((int)(FOR*0.1*10 - alvo.getDEF()));
+			alvo.dano((int)(FOR*0.1*12 - alvo.getDEF()));
 		}
 	}
 	
