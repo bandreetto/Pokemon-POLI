@@ -1,8 +1,11 @@
 
 public abstract class Pokemon {
+	public static int id;
 	protected int hp, baseHP, FOR, AGI, DEF;
-	protected String tipo;
+	protected String tipo, nome;
 	protected String [] ataques;
+	
+	
 	
 	public int getHP() {
 		return hp;
