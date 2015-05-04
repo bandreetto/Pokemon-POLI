@@ -2,10 +2,8 @@ import org.junit.*;
 import static org.junit.Assert.*;
 
 
-
-
 public class TesteSquirtle {
-	Squirtle s;
+	Pokemon s;
 	private String [] ataques = new String[4];
 
 	@Before
@@ -24,6 +22,8 @@ public class TesteSquirtle {
 		assertEquals(ataques[1], s.ataques()[1]);
 		assertEquals(ataques[2], s.ataques()[2]);
 		assertEquals(ataques[3], s.ataques()[3]);
+		assertEquals(2, s.getID());
+		assertEquals("Squirtle", s.getNome());
 		assertEquals(120, s.getHP());
 		assertEquals(120, s.getBaseHP());
 		assertEquals(20, s.getFOR());

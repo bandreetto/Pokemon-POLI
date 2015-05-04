@@ -1,9 +1,10 @@
 
 public class Squirtle extends Pokemon{
-	public static final int id = 2;
+
 	
 	// cria um squirtle com 120 de hp
 	public Squirtle() {
+		id = 2;
 		nome = "Squirtle";
 		hp = 120;
 		baseHP = 120;

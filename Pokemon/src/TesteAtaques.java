@@ -4,8 +4,7 @@ import static org.junit.Assert.*;
 
 
 public class TesteAtaques {
-	Charmander c;
-	Squirtle s;
+	Pokemon c, s;
 	
 	@Before
 	public void ciaPokemons() {

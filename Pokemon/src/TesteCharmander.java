@@ -2,7 +2,7 @@ import org.junit.*;
 import static org.junit.Assert.*;
 
 public class TesteCharmander {
-	Charmander c;
+	Pokemon c;
 	private String [] ataques = new String[4]; 
 	
 	@Before
@@ -20,6 +20,8 @@ public class TesteCharmander {
 		assertEquals(ataques[1], c.ataques()[1]);
 		assertEquals(ataques[2], c.ataques()[2]);
 		assertEquals(ataques[3], c.ataques()[3]);
+		assertEquals(1, c.getID());
+		assertEquals("Charmander", c.getNome());
 		assertEquals(100, c.getHP());
 		assertEquals(100, c.getBaseHP());
 		assertEquals(30, c.getFOR());

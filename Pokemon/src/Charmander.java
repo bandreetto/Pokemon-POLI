@@ -1,9 +1,9 @@
 
-public class Charmander extends Pokemon{
-	public static final int id = 1;
+public class Charmander extends Pokemon {
 	
 	// cria um charmander com 100 de hp e cria o vetor de ataques
 	public Charmander() {
+		id = 1;
 		nome = "Charmander";
 		hp = 100;
 		baseHP = 100;
