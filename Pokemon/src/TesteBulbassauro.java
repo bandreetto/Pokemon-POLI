@@ -4,7 +4,7 @@ import org.junit.*;
 
 
 public class TesteBulbassauro {
-	Pokemon b;
+	private Pokemon b;
 	private String [] ataques = new String[4];
 	
 	@Before

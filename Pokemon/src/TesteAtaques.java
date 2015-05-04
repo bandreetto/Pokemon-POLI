@@ -6,7 +6,7 @@ import static org.junit.Assert.*;
 
 
 public class TesteAtaques {
-	Pokemon c, s, b;
+	private Pokemon c, s, b;
 	private ArrayList<Pokemon> alvos = new ArrayList<Pokemon>();
 	
 	private void ataca(Pokemon atacante, ArrayList<Pokemon> alvos, int ataque) {
