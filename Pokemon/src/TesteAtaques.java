@@ -1,3 +1,4 @@
+ 
 import org.junit.*;
 import static org.junit.Assert.*;
 
@@ -27,9 +28,9 @@ public class TesteAtaques {
 		/* ataque1 */
 		
 		c.ataque1(c);
-		assertEquals(88, c.getHP());
+		assertEquals(80, c.getHP());
 		c.ataque1(s);
-		assertEquals(118, s.getHP());
+		assertEquals(110, s.getHP());
 		
 		c.cura(500);
 		s.cura(500);
@@ -37,9 +38,9 @@ public class TesteAtaques {
 		/* ataque2 */
 		
 		c.ataque2(c);
-		assertEquals(74, c.getHP());
+		assertEquals(65, c.getHP());
 		c.ataque2(s);
-		assertEquals(104, s.getHP());
+		assertEquals(95, s.getHP());
 		
 		c.cura(500);
 		s.cura(500);
@@ -55,10 +56,61 @@ public class TesteAtaques {
 		s.cura(500);
 		
 		/* ataque4 */
-		c.dano(50);
-		c.ataque4(c);
-		assertEquals(99, c.getHP());
 		
+		c.ataque4(c);
+		assertEquals(86, c.getHP());
+		c.dano(36);
+		c.ataque4(c);
+		assertEquals(22, c.getHP());
+		
+		c.ataque4(s);
+		assertEquals(61, s.getHP());
+		
+		c.cura(500);
+		s.cura(500);
+	}
+	
+	@Test
+	public void testeSquirtle() {
+		/* ataque1 */
+		s.ataque1(s);
+		assertEquals(119, s.getHP());
+		s.ataque1(c);
+		assertEquals(50, c.getHP());
+		
+		c.cura(500);
+		s.cura(500);
+		
+		/* ataque2 */
+		
+		s.ataque2(s);
+		assertEquals(110, s.getHP());
+		s.ataque2(c);
+		assertEquals(80, c.getHP());
+		
+		c.cura(500);
+		s.cura(500);
+		
+		/* ataque3 */
+		
+		s.ataque3(s);
+		assertEquals(80, s.getHP());
+		s.ataque3(c);
+		assertEquals(80, s.getHP());
+		
+		c.cura(500);
+		s.cura(500);
+		
+		/* ataque4 */
+		
+		s.ataque4(s);
+		assertEquals(119, s.getHP());
+		s.ataque4(c);
+		assertEquals(90, c.getHP());
+		
+		c.cura(500);
+		s.cura(500);
+
 	}
 
 }

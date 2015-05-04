@@ -38,7 +38,8 @@ public abstract class Pokemon {
 	}
 	
 	public void dano(int n) {
-		hp -= n;
+		if (n <= 0) hp--;
+		else hp -= n;
 	}
 	
 	public void cura(int n) {
