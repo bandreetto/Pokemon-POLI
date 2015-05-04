@@ -7,7 +7,7 @@ public class Squirtle extends Pokemon{
 		hp = 120;
 		baseHP = 120;
 		FOR = 20;
-		AGI = 2;
+		AGI = 1;
 		DEF = 20;
 		tipo = "Agua";
 		ataques = new String[4];

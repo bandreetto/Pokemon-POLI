@@ -2,8 +2,8 @@ import org.junit.*;
 import static org.junit.Assert.*;
 
 public class TesteCharmander {
-	private String [] ataques = new String[4]; 
 	Charmander c;
+	private String [] ataques = new String[4]; 
 	
 	@Before
 	public void criaCharmander() {
@@ -23,7 +23,7 @@ public class TesteCharmander {
 		assertEquals(100, c.getHP());
 		assertEquals(100, c.getBaseHP());
 		assertEquals(30, c.getFOR());
-		assertEquals(9, c.getAGI());
+		assertEquals(6, c.getAGI());
 		assertEquals(10, c.getDEF());
 		assertEquals("Fogo", c.getTipo());
 	}
