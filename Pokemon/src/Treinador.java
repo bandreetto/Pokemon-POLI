@@ -1,4 +1,5 @@
 
+import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Treinador {
@@ -8,12 +9,12 @@ public class Treinador {
 	private ArrayList<Pokemon> time_pokemons = new ArrayList<Pokemon>();
 	private Pokemon ativo;
 	
-	public Treinador(String nom, int num, int [] ids_pokemon, int escolha){
+	public Treinador(String nom, int num, int escolha){
 		int i;
 		nome = nom;
 		numero = num;
-		montarTimePokemon(ids_pokemon, escolha);
-		ativo = time_pokemons.get(0);	
+		montarTimePokemon(escolha);
+		setAtivo(time_pokemons.get(0));	
 	} 
 	
 	// metodo para criar pokemon++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -48,42 +49,103 @@ public class Treinador {
 	}//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	
 	//metodo para montar time pokemon++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-	public void montarTimePokemon( int [] ids_pokemon, int escolha){
-		int i = 0, igual, j;
-		if ( escolha == 1){
-			igual = (int) (Math.random()*12 + 1);
+	public void montarTimePokemon(int escolha){
+		int i = 0, ant = 0;
+		Scanner id_pok = new Scanner(System.in);
+		int id;
+		
+		if(escolha == 1){ //escolhe time
 			while(i < 6){
-				j = (int) (Math.random()*12 + 1);
-				if(igual != j){
-					Pokemon x = criaPokemon(j);
+				System.out.println("Digite o numero do pokemon desejado para seu time [1-12]: ");
+				id = id_pok.nextInt();
+				if(id >=1 && id<=12 && id != ant){
+					Pokemon x = criaPokemon(id);
 					time_pokemons.add(x);
+					ant = id;
 					i++;
 				}
-				igual = j;
+				if( id < 1 || id > 12){
+					System.out.println("Numero invalido. Escolha outro pokemon.");
+				}	
 			}
 		}
 		
-		if(escolha == 2){
-			
+		if (escolha == 2){ //escolha random
+			while(i < 6){
+				id = (int) (Math.random()*12 + 1);  
+				if(ant != id){ //nao pode haver pokemons repetidos
+					Pokemon x = criaPokemon(id);
+					time_pokemons.add(x);
+					ant = id;
+					i++;
+				}
+				
+			}
 		}
-	}
-	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-	public void selecionaPokemonAtivo(){
+		id_pok.close();
 		
 	}
+	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	public void selecionaPokemonAtivo(){ //seleciona o primeiro pokemon do grupo ( ativo)
+		
+		Scanner entrada = new Scanner(System.in);
+		boolean trocou = false;
+		int indice;
+		while(trocou == false){
+			System.out.println(this.getNome() + " selecione seu pokemon inicial. ");
+			this.mostrarTime();
+			System.out.println("Digite o indice do pokemon inicial: ");
+			indice = entrada.nextInt();
+			
+			if( indice >= 1 && indice <=6){
+				setAtivo(time_pokemons.get(indice));
+				trocou = true;
+			}
+			else
+				System.out.println("O pokemon escolhido nao pertence a seu grupo. Digite o indice novamente.");
+		
+		}
+		entrada.close();
+		
+	}//*********************************************************************************************************************
 	
+
+	//4 ?ACOES DO TREINADOR ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	// fugir da batalha
 	public void fugir(){
 		int prior = 1;
+		System.out.println("Treinador fugiu da batalha!");
 		
 	}
-	//troca o Pokemon ativo pelo escolhido
-	public void trocarPokemon(Pokemon [] time, Pokemon x){
+	//troca o Pokemon ativo pelo escolhido********************************************************************************
+	public boolean trocarPokemon(){ //retorna um boolea pra saber se a troca foi realizada
 		int prior = 2;
-		// o pokemon escolhido tem que estar no time!
-		ativo = x;
 		
+		Scanner entrada = new Scanner(System.in);
+		boolean trocou = false;
+		int indice;
+		//troca soh pode acontecer se tiver 2 ou mais pokemons no time
+		if(time_pokemons.size() >=2){
+			while(trocou == false){
+				this.mostrarTime();
+				System.out.println("Digite o indice do pokemon desejado: ");
+				indice = entrada.nextInt();
+			
+				if( indice > 1 && indice <= time_pokemons.size()){
+					setAtivo(time_pokemons.get(indice));
+					trocou = true;
+				}
+				else
+					System.out.println("O pokemon escolhido nao pertence a seu grupo. Digite o indice novamente.");
+		
+			}
+		}
+		
+		entrada.close();
+		return trocou;
+			
 	}
+	
 	//usar um item
 	public void usarItem(Item item){
 		int prior = 3;
@@ -93,6 +155,29 @@ public class Treinador {
 	public void atacar(){
 		int prior = 4;
 		
+	}
+	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	
+	
+	// imprime o time do  treinador **************************************************************************************
+	public void mostrarTime(){
+		System.out.println("Time pokemon.");
+		for(int i = 0; i < time_pokemons.size() ; i++){
+			System.out.println("Nome Pokemon: "+time_pokemons.get(i).getNome()+" Indice: "+(i+1)+"\n");
+		}
+	}//********************************************************************************************************************
+	
+	//getters and setters
+	public String getNome(){
+		return nome;
+	}
+
+	public Pokemon getAtivo() {
+		return ativo;
+	}
+
+	public void setAtivo(Pokemon ativo) {
+		this.ativo = ativo;
 	}
 
 }
