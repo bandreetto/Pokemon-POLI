@@ -1,15 +1,56 @@
  
+import java.util.ArrayList;
+
 import org.junit.*;
 import static org.junit.Assert.*;
 
 
 public class TesteAtaques {
-	Pokemon c, s;
+	private Pokemon c, s, b;
+	private ArrayList<Pokemon> alvos = new ArrayList<Pokemon>();
+	
+	private void ataca(Pokemon atacante, ArrayList<Pokemon> alvos, int ataque) {
+		switch (ataque){
+			case 1:
+				for (Pokemon p: alvos) {
+					atacante.ataque1(p);
+				}
+				break;
+			case 2:
+				for (Pokemon p: alvos) {
+					atacante.ataque2(p);
+				}
+				break;
+			case 3:
+				for(Pokemon p: alvos) {
+					atacante.ataque3(p);
+				}
+				break;
+			case 4:
+				for(Pokemon p: alvos) {
+					atacante.ataque4(p);
+				}
+				break;
+		}
+	}
+	
+	private void cura(ArrayList<Pokemon> alvos) {
+		for (Pokemon p: alvos) {
+			p.cura(500);
+		}
+	}
+	
+	
 	
 	@Before
-	public void ciaPokemons() {
+	public void criaPokemons() {
 		c = new Charmander();
 		s = new Squirtle();
+		b = new Bulbassauro();
+		
+		alvos.add(c);
+		alvos.add(s);
+		alvos.add(b);
 	}
 	
 	@Test
@@ -25,91 +66,111 @@ public class TesteAtaques {
 	@Test
 	public void testeCharmander() {
 		/* ataque1 */
-		
-		c.ataque1(c);
+
+		ataca(c, alvos, 1);
 		assertEquals(80, c.getHP());
-		c.ataque1(s);
 		assertEquals(110, s.getHP());
-		
-		c.cura(500);
-		s.cura(500);
+		assertEquals(36, b.getHP());
+		cura(alvos);
 		
 		/* ataque2 */
 		
-		c.ataque2(c);
+		ataca(c, alvos, 2);
 		assertEquals(65, c.getHP());
-		c.ataque2(s);
 		assertEquals(95, s.getHP());
-		
-		c.cura(500);
-		s.cura(500);
+		assertEquals(81, b.getHP());
+		cura(alvos);
 		
 		/* ataque3 */
 		
-		c.ataque3(c);
+		ataca(c, alvos, 3);
 		assertEquals(88, c.getHP());
-		c.ataque3(s);
 		assertEquals(118, s.getHP());
-		
-		c.cura(500);
-		s.cura(500);
+		assertEquals(81, b.getHP());
+		cura(alvos);
 		
 		/* ataque4 */
 		
 		c.ataque4(c);
 		assertEquals(86, c.getHP());
 		c.dano(36);
-		c.ataque4(c);
+		
+		ataca(c, alvos, 4);
 		assertEquals(22, c.getHP());
-		
-		c.ataque4(s);
 		assertEquals(61, s.getHP());
-		
-		c.cura(500);
-		s.cura(500);
+		assertEquals(50, b.getHP());
+		cura(alvos);
 	}
 	
 	@Test
 	public void testeSquirtle() {
 		/* ataque1 */
-		s.ataque1(s);
+
+		ataca(s, alvos, 1);
 		assertEquals(119, s.getHP());
-		s.ataque1(c);
 		assertEquals(50, c.getHP());
-		
-		c.cura(500);
-		s.cura(500);
+		assertEquals(106, b.getHP());
+		cura(alvos);
 		
 		/* ataque2 */
 		
-		s.ataque2(s);
+		ataca(s, alvos, 2);
 		assertEquals(110, s.getHP());
-		s.ataque2(c);
 		assertEquals(80, c.getHP());
-		
-		c.cura(500);
-		s.cura(500);
+		assertEquals(96, b.getHP());
+		cura(alvos);
 		
 		/* ataque3 */
 		
-		s.ataque3(s);
-		assertEquals(80, s.getHP());
-		s.ataque3(c);
-		assertEquals(80, s.getHP());
-		
-		c.cura(500);
-		s.cura(500);
+		ataca(s, alvos, 3);
+		assertEquals(88, s.getHP());
+		assertEquals(83, c.getHP());
+		assertEquals(84, b.getHP());
+		cura(alvos);
 		
 		/* ataque4 */
 		
-		s.ataque4(s);
+		ataca(s, alvos, 4);
 		assertEquals(119, s.getHP());
-		s.ataque4(c);
 		assertEquals(90, c.getHP());
-		
-		c.cura(500);
-		s.cura(500);
+		assertEquals(66, b.getHP());
+		cura(alvos);
 
+	}
+	
+	@Test
+	public void testeBulbassauro() {
+		/* ataque1 */
+		
+		ataca(b, alvos, 1);
+		assertEquals(77, c.getHP());
+		assertEquals(107, s.getHP());
+		assertEquals(93, b.getHP());
+		cura(alvos);
+		
+		/* ataque2 */
+		
+		ataca(b, alvos, 2);
+		assertEquals(88, c.getHP());
+		assertEquals(74, s.getHP());
+		assertEquals(104, b.getHP());
+		cura(alvos);
+		
+		/* ataque3 */
+		
+		ataca(b, alvos, 3);
+		assertEquals(96, c.getHP());
+		assertEquals(98, s.getHP());
+		assertEquals(108, b.getHP());
+		cura(alvos);
+		
+		/* ataque4 */
+		
+		ataca(b, alvos, 4);
+		ataca(b, alvos, 4);
+		assertEquals(66, c.getHP());
+		assertEquals(8, s.getHP());
+		assertEquals(82, b.getHP());
 	}
 
 }

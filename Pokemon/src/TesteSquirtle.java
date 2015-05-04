@@ -3,7 +3,7 @@ import static org.junit.Assert.*;
 
 
 public class TesteSquirtle {
-	Pokemon s;
+	private Pokemon s;
 	private String [] ataques = new String[4];
 
 	@Before

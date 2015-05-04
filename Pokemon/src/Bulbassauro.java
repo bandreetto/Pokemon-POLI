@@ -64,11 +64,11 @@ public class Bulbassauro extends Pokemon {
 			System.out.println("Bulbassauro esta juntando energia!");
 		} else {
 			if (alvo.getTipo() == "Voador" || alvo.getTipo() == "Fogo" || alvo.getTipo() == "Grama") {
-				alvo.dano((int)(FOR*0.1*30*0.5 - alvo.getDEF()));
+				alvo.dano((int)(FOR*0.1*40*0.5 - alvo.getDEF()));
 			} else if (alvo.getTipo() == "Pedra" || alvo.getTipo() == "Agua") {
-				alvo.dano((int)(FOR*0.1*30*1.5 - alvo.getDEF()));
+				alvo.dano((int)(FOR*0.1*40*1.5 - alvo.getDEF()));
 			} else {
-				alvo.dano((int)(FOR*0.1*30 - alvo.getDEF()));
+				alvo.dano((int)(FOR*0.1*40 - alvo.getDEF()));
 			}
 			carga--;
 		}	

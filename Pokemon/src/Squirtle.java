@@ -44,9 +44,9 @@ public class Squirtle extends Pokemon{
 	// Quebra-Cranio causa dano baseado na defesa do alvo
 	public void ataque3(Pokemon alvo) {
 		if (alvo.getTipo() == "Pedra") {
-			alvo.dano((int)(FOR*0.1*5*0.5 + 1.5*alvo.getDEF()));
+			alvo.dano((int)(FOR*0.1*0.5 + 1.5*alvo.getDEF()));
 		} else {
-			alvo.dano((int)(FOR*0.1*5 + 1.5*alvo.getDEF()));
+			alvo.dano((int)(FOR*0.1 + 1.5*alvo.getDEF()));
 		}
 	}
 

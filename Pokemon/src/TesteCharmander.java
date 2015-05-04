@@ -2,7 +2,7 @@ import org.junit.*;
 import static org.junit.Assert.*;
 
 public class TesteCharmander {
-	Pokemon c;
+	private Pokemon c;
 	private String [] ataques = new String[4]; 
 	
 	@Before
