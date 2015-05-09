@@ -30,8 +30,7 @@ public class Totodile extends Pokemon{
 
 	@Override
 	public void ataque2(Pokemon alvo) {
-		alvo.dano((int)(FOR*0.1*14 - alvo.getDEF()));
-		
+		alvo.dano((int)(FOR*0.1*14 - alvo.getDEF()));	
 	}
 
 	@Override
