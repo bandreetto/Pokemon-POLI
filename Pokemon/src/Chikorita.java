@@ -1,10 +1,9 @@
-
-public class Chicorita extends Pokemon{
+public class Chikorita extends Pokemon{
 	private int carga;
 
-	public Chicorita() {
+	public Chikorita() {
 		id = 7;
-		nome = "Chicorita";
+		nome = "Chikorita";
 		hp = 112;
 		baseHP = 112;
 		FOR = 24;
@@ -71,3 +70,4 @@ public class Chicorita extends Pokemon{
 		}	
 	}
 }
+
