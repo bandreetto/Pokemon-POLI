@@ -3,7 +3,7 @@ public class Cyndaquil extends Pokemon {
 
 	public Cyndaquil() {
 		id = 5;
-		nome = "Charmander";
+		nome = "Cyndaquil";
 		hp = 107;
 		baseHP = 107;
 		FOR = 26;
