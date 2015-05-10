@@ -6,6 +6,9 @@ public class Treinador {
 	private String nome;
 	private ArrayList<Pokemon> time_pokemons = new ArrayList<Pokemon>();
 	private Pokemon ativo;
+	private String [] pokemons = {"Charmander", "Squirtle", "Bulbassauro", "Pikachu",
+			"Cyndaquil", "Totodile", "Chikorita", "Geodude", 
+			"Torchic", "Mudkip", "Treecko", "Pidgey"};
 	
 	private boolean Item1 = true;
 	private boolean Item2 = true;
@@ -49,43 +52,40 @@ public class Treinador {
 	
 	//metodo para montar time pokemon++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	public void montarTimePokemon(int escolha){
-		int i = 0, ant = 0;
-		Scanner id_pok = new Scanner(System.in);
-		Scanner escolhe = new Scanner(System.in);
+		int i = 0, j = 0, ant = 0;
+		Pokemon x;
+		Scanner entrada = new Scanner(System.in);
 	
 		int id, escol;
 		
-		if(escolha == 1){ //escolhe time
-			while(i < 6 ){
+		if (escolha == 1) { //escolhe time
+			for (String p: pokemons) {
+				System.out.println(++j + ". " + p);
+			}
+			while (i < 6) {
 				System.out.println("Digite o numero do pokemon desejado para seu time [1-12]: ");
-				id = id_pok.nextInt();
-				if(id >=1 && id<=12 && id != ant){
-					Pokemon x = criaPokemon(id);
+				id = entrada.nextInt();
+				if (id >=1 && id<=12 && id != ant) {
+					x = criaPokemon(id);
 					time_pokemons.add(x);
 					ant = id;
-					if(i != 5){
-						System.out.println("Deseja escolhar mais pokemons? (1)sim (2) nao: ");
-						escol = escolhe.nextInt();
-						if(escol == 2)
-							i = 6; //forca saida do laco
-						if(escol == 1)
-							i++;
-					}
-					if(i == 5)
+					System.out.println("Deseja escolher mais pokemons? (1)sim (2)nao: ");
+						escol = entrada.nextInt();
+					if(escol == 1)
 						i++;
-				}
-				
-				else
+					else
+						i = 6; // forca saida do laco
+				} else {
 					System.out.println("Numero invalido. Escolha outro pokemon.");
-					
+				}
 			}
 		}
 		
-		if (escolha == 2){ //escolha random : todos pegam 6 pokemons
-			while(i < 6){
+		if (escolha == 2) { //escolha random : todos pegam 6 pokemons
+			while(i < 6) {
 				id = (int) (Math.random()*12 + 1);  
-				if(ant != id){ //nao pode haver pokemons repetidos
-					Pokemon x = criaPokemon(id);
+				if(ant != id) { //nao pode haver pokemons repetidos
+					x = criaPokemon(id);
 					time_pokemons.add(x);
 					ant = id;
 					i++;
@@ -93,8 +93,7 @@ public class Treinador {
 				
 			}
 		}
-		id_pok.close();
-		escolhe.close();
+		entrada.close();
 		
 	}
 	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
