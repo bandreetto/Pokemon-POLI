@@ -5,7 +5,7 @@ public class Torchic extends Pokemon {
 		nome = "Torchic";
 		hp = 107;
 		baseHP = 107;
-		FOR = 25;
+		FOR = 27;
 		AGI = 11;
 		DEF = 12;
 		tipo = "Fogo";

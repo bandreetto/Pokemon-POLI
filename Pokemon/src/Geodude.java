@@ -12,7 +12,7 @@ public class Geodude extends Pokemon{
 		tipo = "Pedra";
 		ataques = new String[4];
 		ataques[0] = "Poder Oculto";
-		ataques[1] = "Lançamento de Rocha";
+		ataques[1] = "Lancamento de Rocha";
 		ataques[2] = "Mega-Soco";
 		ataques[3] = "Tempestade de Areia";
 		
