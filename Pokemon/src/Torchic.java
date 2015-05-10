@@ -1,7 +1,7 @@
 
 public class Torchic extends Pokemon {
 	public Torchic() {
-		id = 8;
+		id = 9;
 		nome = "Torchic";
 		hp = 107;
 		baseHP = 107;
