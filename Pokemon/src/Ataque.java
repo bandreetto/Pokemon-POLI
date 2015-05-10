@@ -39,7 +39,7 @@ public class Ataque extends Evento {
 		int i;
 		System.out.println("Habilidades do seu pokemon.");
 		for(i = 0; i < 4 ; i++)
-			System.out.println("("+(i+1)+")"+a.getAtaque(i)+"\n");
+			System.out.println("("+(i+1)+")"+a.ataques()[i]+"\n");
 	}
 	//****************************************************************************************
 	
@@ -65,7 +65,7 @@ public class Ataque extends Evento {
 	
 	
 	public void descricao(){
-		System.out.println("Pokemon "+atacante+" atacara o pokemon " +alvo+" com "+ atacante.getAtaque(ataque-1));
+		System.out.println("Pokemon "+atacante+" atacara o pokemon " +alvo+" com "+ atacante.ataques()[ataque-1]);
 	}
 	
 	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
