@@ -95,11 +95,13 @@ public class Batalha {
 			
 			//comeca faze de turnos*****************************************************************************************
 			if( eventos[0].getPrioridade() == 1 || eventos[1].getPrioridade() == 1){
-				if (eventos[0].getPrioridade() == 1){
-					eventos[0].acao();	//vence treinador 2
+				if (eventos[0].getPrioridade() == 1 || (eventos[0].getPrioridade() == 1 && eventos[1].getPrioridade() == 1)){ 
+					eventos[0].acao();	//vence treinador 2 . Se AMBOS tentarem fugir, o treinador 1 foge primeiro e o 2 vence
+					System.out.println(" Treinador "+Jogador1.getNome()+" fugiu.\nTreinador "+Jogador2.getNome()+" eh o vencedor!");
 				}
 				else if(eventos[1].getPrioridade() == 1){
 					eventos[1].acao(); //vence treinador 1
+					System.out.println(" Treinador "+Jogador2.getNome()+" fugiu.\nTreinador "+Jogador1.getNome()+" eh o vencedor!");
 				}
 				terminou = true; // se qualquer um fugir termina
 			} 
