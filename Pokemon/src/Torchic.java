@@ -39,9 +39,9 @@ public class Torchic extends Pokemon {
 	
 	public void ataque3(Pokemon alvo) {
 		if (alvo.getTipo() == "Pedra" || alvo.getTipo() == "Eletrico") {
-			alvo.dano((int)(FOR*0.1*20*1.5 - alvo.getDEF()));
-		} else if (alvo.getTipo() == "Grama") {
 			alvo.dano((int)(FOR*0.1*20*0.5 - alvo.getDEF()));
+		} else if (alvo.getTipo() == "Grama") {
+			alvo.dano((int)(FOR*0.1*20*1.5 - alvo.getDEF()));
 		} else {
 			alvo.dano((int)(FOR*0.1*20 - alvo.getDEF()));
 		}

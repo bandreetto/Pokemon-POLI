@@ -1,28 +1,28 @@
 
-public class Mudkip extends Pokemon{
+public class Pidgey extends Pokemon{
 
-	public Mudkip() {
-		id = 10;
-		nome = "Mudkip";
-		hp = 108;
-		baseHP = 108;
-		FOR = 25;
-		AGI = 5;
+	public Pidgey() {
+		id = 12;
+		nome = "Pidgey";
+		hp = 111;
+		baseHP = 111;
+		FOR = 27;
+		AGI = 8;
 		DEF = 13;
-		tipo = "Agua";
+		tipo = "Voador";
 		ataques = new String[4];
-		ataques[0] = "Jato de Agua";
-		ataques[1] = "Investida";
-		ataques[2] = "Ataque de Lama";
-		ataques[3] = "Lancamento de Rocha";
+		ataques[0] = "Ventania";
+		ataques[1] = "Ataque Rapido";
+		ataques[2] = "Ataque de Areia";
+		ataques[3] = "Ciclone";
 	}
 
 	@Override
 	public void ataque1(Pokemon alvo) {
-		if (alvo.getTipo() == "Fogo" || alvo.getTipo() == "Pedra") {
-			alvo.dano((int)(FOR*0.1*20*1.5 - alvo.getDEF()));
-		} else if (alvo.getTipo() == "Agua" || alvo.getTipo() == "Grama") {
+		if (alvo.getTipo() == "Pedra" || alvo.getTipo() == "Eletrico") {
 			alvo.dano((int)(FOR*0.1*20*0.5 - alvo.getDEF()));
+		} else if (alvo.getTipo() == "Grama") {
+			alvo.dano((int)(FOR*0.1*20*1.5 - alvo.getDEF()));
 		} else {
 			alvo.dano((int)(FOR*0.1*20 - alvo.getDEF()));
 		}
@@ -46,16 +46,13 @@ public class Mudkip extends Pokemon{
 		} else if (alvo.getTipo() != "Voador"){
 			alvo.dano((int)(FOR*0.1*20 - alvo.getDEF()));
 		} else {
-			System.out.println(alvo.getNome() + "não é afetado por Ataque de Lama");
+			System.out.println(alvo.getNome() + "não é afetado por Ataque de Areia");
 		}
 	}
 
 	@Override
 	public void ataque4(Pokemon alvo) {
-		if (alvo.getTipo() == "Voador" || alvo.getTipo() == "Fogo") {
-			alvo.dano((int)(FOR*0.1*20*1.5 - alvo.getDEF()));
-		} else {
-			alvo.dano((int)(FOR*0.1*20 - alvo.getDEF()));
-		}
+		alvo.dano((int)(FOR*0.1*14 - alvo.getDEF()));
 	}
+
 }
