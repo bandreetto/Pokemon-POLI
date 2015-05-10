@@ -96,10 +96,10 @@ public class Batalha {
 			//comeca faze de turnos*****************************************************************************************
 			if( eventos[0].getPrioridade() == 1 || eventos[1].getPrioridade() == 1){
 				if (eventos[0].getPrioridade() == 1){
-					eventos[0].acao();	
+					eventos[0].acao();	//vence treinador 2
 				}
 				else if(eventos[1].getPrioridade() == 1){
-					eventos[1].acao();
+					eventos[1].acao(); //vence treinador 1
 				}
 				terminou = true; // se qualquer um fugir termina
 			} 
