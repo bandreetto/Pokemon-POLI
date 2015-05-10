@@ -1,25 +1,24 @@
-
 import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Treinador {
 	
-	private int numero;
 	private String nome;
 	private ArrayList<Pokemon> time_pokemons = new ArrayList<Pokemon>();
 	private Pokemon ativo;
 	
-	public Treinador(String nom, int num, int escolha){
-		int i;
+	private boolean Item1 = true;
+	private boolean Item2 = true;
+	
+	public Treinador(String nom, int escolha){
 		nome = nom;
-		numero = num;
 		montarTimePokemon(escolha);
 		setAtivo(time_pokemons.get(0));	
 	} 
 	
 	// metodo para criar pokemon++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	private Pokemon criaPokemon(int id){
-		Pokemon novo;
+		Pokemon novo = null;
 		if(id == 1)
 			novo = new Charmander();
 		if(id == 2)
@@ -52,25 +51,37 @@ public class Treinador {
 	public void montarTimePokemon(int escolha){
 		int i = 0, ant = 0;
 		Scanner id_pok = new Scanner(System.in);
-		int id;
+		Scanner escolhe = new Scanner(System.in);
+	
+		int id, escol;
 		
 		if(escolha == 1){ //escolhe time
-			while(i < 6){
+			while(i < 6 ){
 				System.out.println("Digite o numero do pokemon desejado para seu time [1-12]: ");
 				id = id_pok.nextInt();
 				if(id >=1 && id<=12 && id != ant){
 					Pokemon x = criaPokemon(id);
 					time_pokemons.add(x);
 					ant = id;
-					i++;
+					if(i != 5){
+						System.out.println("Deseja escolhar mais pokemons? (1)sim (2) nao: ");
+						escol = escolhe.nextInt();
+						if(escol == 2)
+							i = 6; //forca saida do laco
+						if(escol == 1)
+							i++;
+					}
+					if(i == 5)
+						i++;
 				}
-				if( id < 1 || id > 12){
+				
+				else
 					System.out.println("Numero invalido. Escolha outro pokemon.");
-				}	
+					
 			}
 		}
 		
-		if (escolha == 2){ //escolha random
+		if (escolha == 2){ //escolha random : todos pegam 6 pokemons
 			while(i < 6){
 				id = (int) (Math.random()*12 + 1);  
 				if(ant != id){ //nao pode haver pokemons repetidos
@@ -83,6 +94,7 @@ public class Treinador {
 			}
 		}
 		id_pok.close();
+		escolhe.close();
 		
 	}
 	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -92,7 +104,7 @@ public class Treinador {
 		boolean trocou = false;
 		int indice;
 		while(trocou == false){
-			System.out.println(this.getNome() + " selecione seu pokemon inicial. ");
+			System.out.println(this.getNome() + " selecione seu pokemon para batalha. ");
 			this.mostrarTime();
 			System.out.println("Digite o indice do pokemon inicial: ");
 			indice = entrada.nextInt();
@@ -110,55 +122,6 @@ public class Treinador {
 	}//*********************************************************************************************************************
 	
 
-	//4 ?ACOES DO TREINADOR ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-	// fugir da batalha
-	public void fugir(){
-		int prior = 1;
-		System.out.println("Treinador fugiu da batalha!");
-		
-	}
-	//troca o Pokemon ativo pelo escolhido********************************************************************************
-	public boolean trocarPokemon(){ //retorna um boolea pra saber se a troca foi realizada
-		int prior = 2;
-		
-		Scanner entrada = new Scanner(System.in);
-		boolean trocou = false;
-		int indice;
-		//troca soh pode acontecer se tiver 2 ou mais pokemons no time
-		if(time_pokemons.size() >=2){
-			while(trocou == false){
-				this.mostrarTime();
-				System.out.println("Digite o indice do pokemon desejado: ");
-				indice = entrada.nextInt();
-			
-				if( indice > 1 && indice <= time_pokemons.size()){
-					setAtivo(time_pokemons.get(indice));
-					trocou = true;
-				}
-				else
-					System.out.println("O pokemon escolhido nao pertence a seu grupo. Digite o indice novamente.");
-		
-			}
-		}
-		
-		entrada.close();
-		return trocou;
-			
-	}
-	
-	//usar um item
-	public void usarItem(Item item){
-		int prior = 3;
-		
-	}
-	
-	public void atacar(){
-		int prior = 4;
-		
-	}
-	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-	
-	
 	// imprime o time do  treinador **************************************************************************************
 	public void mostrarTime(){
 		System.out.println("Time pokemon.");
@@ -179,5 +142,37 @@ public class Treinador {
 	public void setAtivo(Pokemon ativo) {
 		this.ativo = ativo;
 	}
+
+	public int getIndiceAtivo(){
+		return this.time_pokemons.indexOf(ativo);
+	}
+	public boolean isItem1() {
+		return Item1;
+	}
+
+	public void setItem1(boolean item1) {
+		Item1 = item1;
+	}
+
+	public boolean isItem2() {
+		return Item2;
+	}
+
+	public void setItem2(boolean item2) {
+		Item2 = item2;
+	}
+	
+	public int getTamanhoTime(){
+		return this.time_pokemons.size();
+	}
+	
+	public Pokemon getPokemon(int i){
+		return this.time_pokemons.get(i);
+	}
+	public boolean removePokemon(Pokemon a){
+		return this.time_pokemons.remove(a);
+		
+	}
+	
 
 }

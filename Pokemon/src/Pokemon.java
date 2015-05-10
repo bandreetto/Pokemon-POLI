@@ -40,6 +40,10 @@ public abstract class Pokemon {
 		return ataques;
 	}
 	
+	public String getAtaque(int i){
+		return ataques[i];
+	}
+	
 	public boolean morreu() {
 		if (hp <= 0) return true;
 		return false;
