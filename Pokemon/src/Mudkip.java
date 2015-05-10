@@ -7,8 +7,8 @@ public class Mudkip extends Pokemon{
 		hp = 108;
 		baseHP = 108;
 		FOR = 25;
-		AGI = 7;
-		DEF = 23;
+		AGI = 5;
+		DEF = 13;
 		tipo = "Agua";
 		ataques = new String[4];
 		ataques[0] = "Jato de Agua";
