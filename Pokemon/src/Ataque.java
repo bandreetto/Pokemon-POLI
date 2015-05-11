@@ -4,13 +4,11 @@ import java.util.Scanner;
 public class Ataque extends Evento {
 
 	private final static int  prioridade = 4;
-	private Treinador treinadordois;
 	private Pokemon atacante;
 	private Pokemon alvo;
 	private int ataque;
 	
 	public Ataque(Treinador Atacante, Treinador Alvo){
-		treinadordois = Alvo;
 		atacante = Atacante.getAtivo();
 		alvo = Alvo.getAtivo();
 		escolherAtaque();
@@ -55,11 +53,7 @@ public class Ataque extends Evento {
 			atacante.ataque4(alvo);
 		else
 			System.out.println("Ataque nao disponivel");
-		
-		if(alvo.morreu()){
-			boolean morreu = treinadordois.removePokemon(alvo);
-			treinadordois.selecionaPokemonAtivo();	
-		}
+				
 	}
 	
 	
