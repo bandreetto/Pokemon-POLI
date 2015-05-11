@@ -13,5 +13,8 @@ public class TesteTreinador {
 		for (int i = 1; i <= 6; i++) {
 			assertEquals(t.getPokemon(i-1).id, i);
 		}
+		
+		Treinador tr = new Treinador("Nome", 2);
+		assertEquals(6, tr.getTamanhoTime());
 	}
 }
