@@ -3,8 +3,8 @@ import java.util.Scanner;
 public class Batalha {
 	public static void main(String[] args) {
 		Scanner entrada = new Scanner(System.in);
-		
-		String nome;
+		String nome1;
+		String nome2;
 		int escolha, x;
 		Evento []eventos = new Evento[2]; // vetor de eventos para comparacao
 		boolean acao_valida;
@@ -14,20 +14,20 @@ public class Batalha {
 		
 		// criando treinador 1 ***********************************************************************************************
 		System.out.println("Treinador 1, digite seu nome: ");
-		nome = entrada.next();
+		nome1 = entrada.next();
 		System.out.println("Treinador 1.\n Deseja Montar time (1) ou Escolhe time aleratoriamente (2): ");
 		escolha = entrada.nextInt();
-		Treinador Jogador1 = new Treinador(nome, escolha);
-	
-		//****************************************************************************************************************
+		Treinador Jogador1 = new Treinador(nome1, escolha);
 		
+		//****************************************************************************************************************
+		//SCANNER NAO FUNCIONA PARA TREINADOR 2! NAO SABEMOS O PROBLEMA!
 		//criando treinador 2 *********************************************************************************************
 		System.out.println("Treinador 2 digite seu nome: ");
-		nome = entrada.next();
+		nome2 = entrada.next();	
 		System.out.println("Treinador 2.\n Deseja Montar time (1) ou Escolher time aleatoriamente(2):");
 		escolha = entrada.nextInt();
-		Treinador Jogador2 = new Treinador(nome, escolha);
-		
+		Treinador Jogador2 = new Treinador(nome2, escolha);
+
 		//*****************************************************************************************************************
 		
 		//
@@ -168,4 +168,5 @@ public class Batalha {
 		
 		entrada.close();
 	}
+
 }
