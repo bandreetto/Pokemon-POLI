@@ -56,7 +56,7 @@ public class Treinador {
 		Pokemon x;
 		Scanner entrada = new Scanner(System.in);
 	
-		int id, escol;
+		int id;
 		
 		if (escolha == 1) { //escolhe time
 			for (String p: pokemons) {
@@ -69,12 +69,7 @@ public class Treinador {
 					x = criaPokemon(id);
 					time_pokemons.add(x);
 					ant = id;
-					System.out.println("Deseja escolher mais pokemons? (1)sim (2)nao: ");
-						escol = entrada.nextInt();
-					if(escol == 1)
-						i++;
-					else
-						i = 6; // forca saida do laco
+					i++;
 				} else {
 					System.out.println("Numero invalido. Escolha outro pokemon.");
 				}
